@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,8 +34,19 @@ public class Main {
         // make new array list of data entries
         // filter them thru new lists of positive and negative accounts
 
-//        List<Customer> negAccounts = null;
-//        List<Customer> posAccounts = null;
+        List<Customer> negAccounts = null;
+        List<Customer> posAccounts = null;
+
+        Customer wayneEnterprises = new Customer();
+            wayneEnterprises.setName("Wayne Enterprises");
+            wayneEnterprises.setId(1);
+        Customer dailyPlanet = new Customer();
+        Customer aceChemical = new Customer();
+
+        AccountRecord wayne = new AccountRecord();
+        AccountRecord daily = new AccountRecord();
+        AccountRecord ace = new AccountRecord();
+
 
         for (String[] customers : customerData) {
 
@@ -43,41 +55,25 @@ public class Main {
             for (String[] customerRecords : customerData) {
 
                 if (customerNumber == 1) {
-                    Customer wayneEnterprises = new Customer();
-                    AccountRecord wayne = new AccountRecord();
                     wayne.setCharge(Integer.parseInt(customers[2]));
-                    wayne.setChargeDate(String.valueOf(Integer.parseInt(customers[3])));
+                    wayne.setChargeDate(customers[3]);
                     wayneEnterprises.getCharges().add(wayne);
+
                 } else if (customerNumber == 2) {
-                    Customer dailyPlanet = new Customer();
-                    AccountRecord daily = new AccountRecord();
                     daily.setCharge(Integer.parseInt(customers[2]));
-                    daily.setChargeDate(String.valueOf(Integer.parseInt(customers[3])));
+                    daily.setChargeDate(customers[3]);
                     dailyPlanet.getCharges().add(daily);
                 } else {
-                    Customer aceChemical = new Customer();
-                    AccountRecord ace = new AccountRecord();
                     ace.setCharge(Integer.parseInt(customers[2]));
-                    ace.setChargeDate(String.valueOf(Integer.parseInt(customers[3])));
+                    ace.setChargeDate(customers[3]);
                     aceChemical.getCharges().add(ace);
                 }
-                System.out.println(Arrays.toString(customerRecords));
             }
 
-
-//                List<Customer> wayne = wayneEnterprises.stream()
-//                        .filter(w -> w.indexOf)
-//                        .collect(Collectors.toList());
-
-
-//            List<Customer> dailyPlanet = customerData.stream()
-//                    .filter(customerData -> customerData.getId(2))
-//                    .collect(Collectors.toList());
-//
-//            List<Customer> aceChemical = customerData.stream()
-//                    .filter(customerData -> customerData.getId(3))
-//                    .collect(Collectors.toList());
             }
+            System.out.println(wayneEnterprises);
+            System.out.println(dailyPlanet);
+            System.out.println(aceChemical);
         }
 //        System.out.println("Positive accounts:");
 //        System.out.println("Negative accounts:");

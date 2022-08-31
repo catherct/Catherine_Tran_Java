@@ -24,4 +24,11 @@ public class AccountRecord {
         this.chargeDate = chargeDate;
     }
 
+    @Override
+    public String toString() {
+        return "AccountRecord{" +
+                "charge=" + charge +
+                ", chargeDate='" + chargeDate + '\'' +
+                '}';
+    }
 }

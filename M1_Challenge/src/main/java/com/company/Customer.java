@@ -42,8 +42,11 @@ public class Customer {
 
     @Override
     public String toString() {
-        //update this
-        return "Update me";
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", charges=" + charges +
+                '}';
     }
 
 }
