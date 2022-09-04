@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -40,12 +41,19 @@ public class Main {
         Customer wayneEnterprises = new Customer();
             wayneEnterprises.setName("Wayne Enterprises");
             wayneEnterprises.setId(1);
-        Customer dailyPlanet = new Customer();
-        Customer aceChemical = new Customer();
-
         AccountRecord wayne = new AccountRecord();
+
+        Customer dailyPlanet = new Customer();
+            dailyPlanet.setName("Daily Planet");
+            dailyPlanet.setId(2);
         AccountRecord daily = new AccountRecord();
+
+        Customer aceChemical = new Customer();
+            aceChemical.setName("Ace Chemical");
+            aceChemical.setId(3);
         AccountRecord ace = new AccountRecord();
+
+
 
 
         for (String[] customers : customerData) {
@@ -58,7 +66,6 @@ public class Main {
                     wayne.setCharge(Integer.parseInt(customers[2]));
                     wayne.setChargeDate(customers[3]);
                     wayneEnterprises.getCharges().add(wayne);
-
                 } else if (customerNumber == 2) {
                     daily.setCharge(Integer.parseInt(customers[2]));
                     daily.setChargeDate(customers[3]);
@@ -70,7 +77,21 @@ public class Main {
                 }
             }
 
+            List<String> wayneList = customerData.stream()
+                    .filter(w -> w.getClass(wayneEnterprises))
+                    .distinct()
+                    .collect(Collectors.toList());
+
+            List<String> dailyList = customerData.stream()
+                    .filter(d -> d.charAt("Daily Planet"))
+                    .collect(Collectors.toList());
+
+            List<String> aceList = customerData.stream()
+                    .filter(a -> a.charAt("Ace Chemical"))
+                    .collect(Collectors.toList());
+
             }
+
             System.out.println(wayneEnterprises);
             System.out.println(dailyPlanet);
             System.out.println(aceChemical);

@@ -32,8 +32,8 @@ public class Customer {
         this.name = name;
     }
 
-    public int getBalance() {       // update this
-        return 0;
+    public List<AccountRecord> getBalance() {       // update this
+        return charges;
     }
 
     public List<AccountRecord> getCharges() {
