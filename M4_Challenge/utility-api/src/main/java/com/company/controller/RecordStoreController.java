@@ -36,7 +36,7 @@ public class RecordStoreController {
     // retrieve record by ID (fails non-existent IDs)
     @RequestMapping(value = "/records/{id}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public Record getRecordById(@PathVariable @Valid int id) {
+    public Record getRecordById(@PathVariable int id) {
 
         Record foundRecord = null;
 
