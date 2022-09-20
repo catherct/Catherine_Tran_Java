@@ -4,6 +4,7 @@ import com.company.models.Record;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class RecordStoreController {
         recordList.add(new Record("Sturgill Simpson", "Metamodern Sounds in Country Music", "2010", idCounter++));
     }
 
+    // retrieve all records
     @RequestMapping(value = "/records", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Record> getAllRecords() {
@@ -31,9 +33,10 @@ public class RecordStoreController {
         return recordList;
     }
 
+    // retrieve record by ID (fails non-existent IDs)
     @RequestMapping(value = "/records/{id}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public Record getRecordById(@PathVariable int id) {
+    public Record getRecordById(@PathVariable @Valid int id) {
 
         Record foundRecord = null;
 
