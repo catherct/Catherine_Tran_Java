@@ -5,13 +5,9 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class Record {
-
-    @NotEmpty(message = "You must enter an artist name.")   // are these validations necessary under business rules? -- is @Valid necessary in @RestController method?
+    
     private String artist;
-    @NotEmpty(message = "You must enter an album title.")
     private String album;
-    @NotEmpty(message = "You must enter a valid year.")
-    @Size(min = 4, max = 4, message = "Year must be exactly 4 digits.")
     private String year;
     private int id;
 
