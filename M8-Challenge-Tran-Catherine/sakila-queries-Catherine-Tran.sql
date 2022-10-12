@@ -10,7 +10,7 @@ ON (p.rental_id = r.rental_id)
 GROUP BY f.film_id;
 
 
--- Create a view named total_rental_amount using the query from the previous step ( + queried table view )
+-- Create a view named total_rental_amount using the query from the previous step (+ queried table view).
 CREATE VIEW total_rental_amount AS
 SELECT f.film_id, SUM(amount) AS 'total_amount'
 FROM payment AS p
@@ -32,7 +32,7 @@ FROM inventory i
 GROUP BY film_id;
 
 
--- Create a view named total_film_copies using the query from the previous step (+ queried table view )
+-- Create a view named total_film_copies using the query from the previous step (+ queried table view).
 CREATE VIEW total_film_copies AS
 SELECT film_id, COUNT(film_id) AS 'total_copies'
 FROM inventory i
