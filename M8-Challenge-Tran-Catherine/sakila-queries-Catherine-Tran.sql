@@ -22,7 +22,6 @@ ON (p.rental_id = r.rental_id)
 		ON (f.film_id = i.film_id)
 GROUP BY f.film_id;
 
-
 SELECT *
 FROM total_rental_amount;
 
