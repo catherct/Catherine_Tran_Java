@@ -47,7 +47,7 @@ public class CustomerRepositoryTest {
         Optional<Customer> customer1 = customerRepo.findById(customer.getId());
         assertEquals(customer1.get(), customer);
 
-        assertTrue(true);
+        assertTrue(customer1.isPresent());
     }
 
     @Test
@@ -129,7 +129,9 @@ public class CustomerRepositoryTest {
         Optional<Customer> customer1 = customerRepo.findById(customer.getId());
         assertEquals(customer1.get(), customer);
 
-        // update code
+        customer1 = customerRepo.findById(customer.getId());
+
+        assertTrue(customer1.isPresent());
     }
 
     @Test
@@ -152,6 +154,8 @@ public class CustomerRepositoryTest {
 
         // ASSERT
         List<Customer> customer1 = customerRepo.findCustomersByState("Underwater");
-        assertEquals("Underwater", "Underwater");
+        assertEquals(customer1.contains("Underwater"), customer);
+
+        // update code
     }
 }
