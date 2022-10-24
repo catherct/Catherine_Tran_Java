@@ -11,7 +11,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     List<Customer> createCustomer(Customer customer);
 
-    List<Customer> updateCustomer(int customerId);  // assume updating with id?
+    List<Customer> updateCustomer(Customer customer);
 
     List<Customer> deleteCustomer();
 

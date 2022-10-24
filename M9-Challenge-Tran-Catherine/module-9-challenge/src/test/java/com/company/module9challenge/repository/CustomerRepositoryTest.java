@@ -47,11 +47,13 @@ public class CustomerRepositoryTest {
         Optional<Customer> customer1 = customerRepo.findById(customer.getId());
         assertEquals(customer1.get(), customer);
 
-        assertTrue(customer1.isPresent());
+        assertTrue(true);
     }
 
     @Test
     public void shouldUpdateCustomer() {
+
+        // ARRANGE
         Customer customer = new Customer();
         customer.setFirstName("Squidward");
         customer.setLastName("Tennisballs");
@@ -69,10 +71,20 @@ public class CustomerRepositoryTest {
         customerRepo.save(customer);
 
         // ASSERT
-        Optional<Customer> customer1 = customerRepo.findById(customer.getId());
-        assertEquals(customer1.get(), customer);
+        Optional<Customer> oldCustomer = customerRepo.findById(customer.getId());
+        assertEquals(oldCustomer.get(), customer);
 
-        customerRepo.updateCustomer(customer.getId());
+        // ARRANGE
+        customer.setLastName("Tentacles");
+
+        // ACT
+        customerRepo.save(customer);
+
+        // ASSERT
+        Optional<Customer> newCustomer = customerRepo.findById(customer.getId());
+        assertEquals(newCustomer.get(), customer);
+
+        assertTrue(true);
 
         // update code
 
@@ -153,9 +165,11 @@ public class CustomerRepositoryTest {
         customerRepo.save(customer);
 
         // ASSERT
-        List<Customer> customer1 = customerRepo.findCustomersByState("Underwater");
-        assertEquals(customer1.contains("Underwater"), customer);
+        List<Customer> customer1 = customerRepo.findCustomersByState(customer.getState());
+        assertEquals(customer1.equals(customer), customer);
 
-        // update code
+        customer1 = customerRepo.findCustomersByState("Underwater");
+
+        assertEquals(customer.getState(), customer1, customer1);
     }
 }
