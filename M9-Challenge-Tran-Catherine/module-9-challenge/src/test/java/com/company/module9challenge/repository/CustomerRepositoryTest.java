@@ -85,9 +85,6 @@ public class CustomerRepositoryTest {
         assertEquals(newCustomer.get(), customer);
 
         assertTrue(true);
-
-        // update code
-
     }
 
     @Test
