@@ -6,9 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -20,10 +18,6 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "author_id")
-    private Set<Book> author = new HashSet<>();     // look at relationship in database
-                                                    // many books :: one author
     private String isbn;
     private LocalDate publishDate;
     private int authorId;
@@ -38,14 +32,6 @@ public class Book implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Set<Book> getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Set<Book> author) {
-        this.author = author;
     }
 
     public String getIsbn() {
@@ -101,19 +87,18 @@ public class Book implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return authorId == book.authorId && publisherId == book.publisherId && Objects.equals(id, book.id) && Objects.equals(author, book.author) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate) && Objects.equals(title, book.title) && Objects.equals(price, book.price);
+        return authorId == book.authorId && publisherId == book.publisherId && Objects.equals(id, book.id) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate) && Objects.equals(title, book.title) && Objects.equals(price, book.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, author, isbn, publishDate, authorId, title, publisherId, price);
+        return Objects.hash(id, isbn, publishDate, authorId, title, publisherId, price);
     }
 
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", author=" + author +
                 ", isbn='" + isbn + '\'' +
                 ", publishDate=" + publishDate +
                 ", authorId=" + authorId +
