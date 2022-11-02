@@ -154,11 +154,9 @@ public class BookRepositoryTest {
         books.add(book1);
         books.add(book2);
 
-        books = bookRepo.findAllByAuthor(author.getId());
+        books = bookRepo.findAllBooksByAuthor(author.getId());
 
-        assertEquals(books.get(), books);
-
-        // update code
+        assertEquals(books.get(author.getId()), books);
 
     }
 }
