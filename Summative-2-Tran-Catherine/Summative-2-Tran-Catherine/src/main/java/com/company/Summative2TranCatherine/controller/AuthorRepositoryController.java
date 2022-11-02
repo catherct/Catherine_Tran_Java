@@ -1,7 +1,6 @@
 package com.company.Summative2TranCatherine.controller;
 
 import com.company.Summative2TranCatherine.model.Author;
-import com.company.Summative2TranCatherine.model.Publisher;
 import com.company.Summative2TranCatherine.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;

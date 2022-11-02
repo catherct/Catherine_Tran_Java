@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bfe5ebd-d69d-4461-b2f2-dc5187b44269" name="Changes" comment="" />
+    <list default="true" id="1bfe5ebd-d69d-4461-b2f2-dc5187b44269" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/main/java/com/company/Summative2TranCatherine/controller/AuthorRepositoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/main/java/com/company/Summative2TranCatherine/controller/AuthorRepositoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/main/java/com/company/Summative2TranCatherine/controller/PublisherRepositoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/main/java/com/company/Summative2TranCatherine/controller/PublisherRepositoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/test/java/com/company/Summative2TranCatherine/repository/AuthorRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/test/java/com/company/Summative2TranCatherine/repository/AuthorRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/test/java/com/company/Summative2TranCatherine/repository/BookRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/test/java/com/company/Summative2TranCatherine/repository/BookRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/test/java/com/company/Summative2TranCatherine/repository/PublisherRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Summative-2-Tran-Catherine/Summative-2-Tran-Catherine/src/test/java/com/company/Summative2TranCatherine/repository/PublisherRepositoryTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
