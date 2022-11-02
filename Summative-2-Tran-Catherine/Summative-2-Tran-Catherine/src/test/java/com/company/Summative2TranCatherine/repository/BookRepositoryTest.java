@@ -16,7 +16,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
-@RunWith((SpringJUnit4ClassRunner.class))
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class BookRepositoryTest {
 
