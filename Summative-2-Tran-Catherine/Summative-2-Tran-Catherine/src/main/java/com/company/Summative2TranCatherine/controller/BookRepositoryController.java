@@ -13,7 +13,7 @@ public class BookRepositoryController {
     @Autowired
     BookRepository bookRepo;
 
-    public Book createBook(Book book) {     // is create supposed to return an object?
+    public Book createBook(Book book) {
         book.setId(book.getId());
         book.setTitle(book.getTitle());
         book.setAuthorId(book.getAuthorId());
