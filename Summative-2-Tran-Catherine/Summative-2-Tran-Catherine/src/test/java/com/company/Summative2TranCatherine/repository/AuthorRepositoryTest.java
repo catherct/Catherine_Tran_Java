@@ -1,6 +1,8 @@
 package com.company.Summative2TranCatherine.repository;
 
 import com.company.Summative2TranCatherine.model.Author;
+import com.company.Summative2TranCatherine.model.Book;
+import com.company.Summative2TranCatherine.model.Publisher;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -37,6 +39,7 @@ public class AuthorRepositoryTest {
     @Test
     public void shouldCreateReadDeleteAuthors() throws Exception {
 
+        // arrange
         Author author = new Author();
         author.setFirstName("Lemony");
         author.setLastName("Snicket");
@@ -46,17 +49,52 @@ public class AuthorRepositoryTest {
         author.setPostalCode("12345");
         author.setPhone("234-567-8901");
         author.setEmail("snicket@harpercollins.com");
+
+        Publisher publisher1 = new Publisher();
+        publisher1.setName("HarperCollins");
+        publisher1.setStreet("123 Harper Ave");
+        publisher1.setCity("Collinstopia");
+        publisher1.setState("New York");
+        publisher1.setPostalCode("98372");
+        publisher1.setPhone("882-315-6697");
+        publisher1.setEmail("welovebooks@harpercollins.com");
+        publisher1 = publisherRepo.save(publisher1);
+
+        Book book1 = new Book();
+        book1.setId(book1.getId());
+        book1.setTitle("The Penultimate Peril");
+        book1.setAuthorId(author.getId());
+        book1.setPublishDate(LocalDate.of(2005, 10, 18));
+        book1.setPublisherId(publisher1.getId());
+        book1.setIsbn("98DI9834OP");
+        book1.setPrice(new BigDecimal(8.99));
+        Set bookSet = new HashSet<>();
+        bookSet.add(book1);
+        book1 = bookRepo.save(book1);
+
+        Book book2 = new Book();
+        book2.setId(book2.getId());
+        book2.setTitle("The End");
+        book2.setAuthorId(author.getId());
+        book2.setPublishDate(LocalDate.of(2006, 10, 13));
+        book2.setPublisherId(publisher1.getId());
+        book2.setIsbn("98DIGQ18Z8P");
+        book2.setPrice(new BigDecimal(8.99));
+        bookSet.add(book2);
+        book2 = bookRepo.save(book2);
+
+        // act
         author = authorRepo.save(author);
 
+        // assert
         Optional<Author> author1 = authorRepo.findById(author.getId());
-
         assertEquals(author1.get(), author);
 
         authorRepo.deleteById(author.getId());
-
         author1 = authorRepo.findById(author.getId());
-
         assertFalse(author1.isPresent());
+
+        // other asserts for publisher and books?
     }
 
     @Test

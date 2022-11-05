@@ -39,6 +39,7 @@ public class BookRepositoryTest {
     @Test
     public void shouldCreateReadDeleteBook() throws Exception {
 
+        // arrange
         Publisher publisher = new Publisher();
         publisher.setName("HarperCollins");
         publisher.setStreet("123 Harper Ave");
@@ -68,22 +69,23 @@ public class BookRepositoryTest {
         book.setPublisherId(publisher.getId());
         book.setIsbn("98DI9834OP");
         book.setPrice(new BigDecimal(8.99));
+
+        // act
         book = bookRepo.save(book);
 
+        // assert
         Optional<Book> book1 = bookRepo.findById(book.getId());
-
         assertEquals(book1.get(), book);
 
         bookRepo.deleteById(book.getId());
-
         book1 = bookRepo.findById(book.getId());
-
         assertFalse(book1.isPresent());
     }
 
     @Test
     public void shouldReadAllBooks() throws Exception {
 
+        // arrange
         Publisher publisher1 = new Publisher();
         publisher1.setName("HarperCollins");
         publisher1.setStreet("123 Harper Ave");
@@ -134,7 +136,6 @@ public class BookRepositoryTest {
         book1.setPublisherId(publisher1.getId());
         book1.setIsbn("98DI9834OP");
         book1.setPrice(new BigDecimal(8.99));
-        book1 = bookRepo.save(book1);
 
         Book book2 = new Book();
         book2.setId(book2.getId());
@@ -144,7 +145,6 @@ public class BookRepositoryTest {
         book2.setPublisherId(publisher1.getId());
         book2.setIsbn("98DIGQ18Z8P");
         book2.setPrice(new BigDecimal(8.99));
-        book2 = bookRepo.save(book2);
 
         Book book3 = new Book();
         book3.setId(book3.getId());
@@ -154,6 +154,10 @@ public class BookRepositoryTest {
         book3.setPublisherId(publisher2.getId());
         book3.setIsbn("98GIN238Z8P");
         book3.setPrice(new BigDecimal(8.99));
+
+        // act
+        book1 = bookRepo.save(book1);
+        book2 = bookRepo.save(book2);
         book3 = bookRepo.save(book3);
 
         List<Book> books = new ArrayList<>();
@@ -228,6 +232,12 @@ public class BookRepositoryTest {
         Author author = new Author();
         author.setFirstName("Lemony");
         author.setLastName("Snicket");
+        author.setStreet("123 Misery Lane");
+        author.setCity("Topeka");
+        author.setState("Kansas");
+        author.setPostalCode("12345");
+        author.setPhone("234-567-8901");
+        author.setEmail("snicket@harpercollins.com");
         author = authorRepo.save(author);
 
         Book book1 = new Book();
@@ -254,7 +264,7 @@ public class BookRepositoryTest {
         books.add(book1);
         books.add(book2);
 
-        books = bookRepo.findAllBooksByAuthor(author.getId());
+        books = bookRepo.findByAuthorId(author.getId());
 
         assertEquals(books.get(author.getId()), books);
 
