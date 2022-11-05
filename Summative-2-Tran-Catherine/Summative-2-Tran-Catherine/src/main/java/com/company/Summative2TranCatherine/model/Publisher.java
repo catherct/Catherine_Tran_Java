@@ -20,7 +20,7 @@ public class Publisher implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id")
-    private Set<Publisher> books = new HashSet<>();
+    private Set<Book> books = new HashSet<>();
 
     private String name;
     private String street;
@@ -39,11 +39,11 @@ public class Publisher implements Serializable {
         this.id = id;
     }
 
-    public Set<Publisher> getBooks() {
+    public Set<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Publisher> books) {
+    public void setBooks(Set<Book> books) {
         this.books = books;
     }
 

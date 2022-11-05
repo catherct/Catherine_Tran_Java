@@ -20,7 +20,7 @@ public class Author implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
-    private Set<Author> books = new HashSet<>();
+    private Set<Book> books = new HashSet<>();
 
     private String firstName;
     private String lastName;
@@ -41,11 +41,11 @@ public class Author implements Serializable {
         this.id = id;
     }
 
-    public Set<Author> getBooks() {
+    public Set<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Author> books) {
+    public void setBooks(Set<Book> books) {
         this.books = books;
     }
 
