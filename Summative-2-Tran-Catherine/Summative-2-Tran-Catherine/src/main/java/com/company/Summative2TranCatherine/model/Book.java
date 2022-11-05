@@ -20,9 +20,9 @@ public class Book implements Serializable {
 
     private String isbn;
     private LocalDate publishDate;
-    private int authorId;
+    private Integer authorId;
     private String title;
-    private int publisherId;
+    private Integer publisherId;
     private BigDecimal price;
 
 
@@ -50,11 +50,11 @@ public class Book implements Serializable {
         this.publishDate = publishDate;
     }
 
-    public int getAuthorId() {
+    public Integer getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(int authorId) {
+    public void setAuthorId(Integer authorId) {
         this.authorId = authorId;
     }
 
@@ -66,11 +66,11 @@ public class Book implements Serializable {
         this.title = title;
     }
 
-    public int getPublisherId() {
+    public Integer getPublisherId() {
         return publisherId;
     }
 
-    public void setPublisherId(int publisherId) {
+    public void setPublisherId(Integer publisherId) {
         this.publisherId = publisherId;
     }
 
@@ -87,7 +87,7 @@ public class Book implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return authorId == book.authorId && publisherId == book.publisherId && Objects.equals(id, book.id) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate) && Objects.equals(title, book.title) && Objects.equals(price, book.price);
+        return Objects.equals(id, book.id) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate) && Objects.equals(authorId, book.authorId) && Objects.equals(title, book.title) && Objects.equals(publisherId, book.publisherId) && Objects.equals(price, book.price);
     }
 
     @Override
